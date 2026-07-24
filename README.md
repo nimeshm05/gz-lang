@@ -41,6 +41,26 @@ gzlang build app.gz
 gzlang build app.gz -o dist/app.js
 ```
 
+### Interactive REPL
+
+Run `gzlang` with no arguments (or `gzlang repl`) to get an interactive prompt, just like `python` or `node`:
+
+```text
+$ gzlang
+gzlang 0.1.0 -- type slang, get JavaScript (.exit or Ctrl+D to dip)
+gz> cook vibes = ["fr", "sheesh"]
+gz> vibes.map(v => v + "!")
+[ 'fr!', 'sheesh!' ]
+gz> lowkey (noCap) {
+...     spill("multiline works too")
+... }
+multiline works too
+gz> holdUp Promise.resolve("even top-level holdUp")
+'even top-level holdUp'
+```
+
+Variables, functions, and squads persist across lines, multiline blocks are detected automatically, and history is saved to `~/.gzlang_history`.
+
 ### Programmatic API
 
 ```js

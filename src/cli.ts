@@ -4,10 +4,13 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { transpile } from "./index.js";
 import { GzSyntaxError } from "./errors.js";
+import { startRepl } from "./repl.js";
 
 const HELP = `gzlang -- the Gen Z programming language, no cap
 
 Usage:
+  gzlang                             Start the interactive REPL
+  gzlang repl                        Same thing, but explicit
   gzlang run <file.gz> [args...]     Transpile and execute with Node.js
   gzlang build <file.gz> [-o out]    Transpile to a JavaScript file
 
@@ -17,6 +20,7 @@ Options:
   -v, --version      Show version
 
 Examples:
+  gzlang
   gzlang run app.gz
   gzlang build app.gz -o dist/app.js
 `;
@@ -27,16 +31,18 @@ function main(): void {
   const args = process.argv.slice(2);
   const command = args[0];
 
-  if (command === undefined || command === "-h" || command === "--help") {
+  if (command === "-h" || command === "--help") {
     process.stdout.write(HELP);
-    process.exit(command === undefined ? 1 : 0);
+    process.exit(0);
   }
   if (command === "-v" || command === "--version") {
     process.stdout.write(`${readVersion()}\n`);
     process.exit(0);
   }
 
-  if (command === "run") {
+  if (command === undefined || command === "repl") {
+    startRepl(readVersion());
+  } else if (command === "run") {
     runCommand(args.slice(1));
   } else if (command === "build") {
     buildCommand(args.slice(1));
