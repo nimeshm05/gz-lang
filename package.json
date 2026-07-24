@@ -1,0 +1,52 @@
+{
+  "name": "gzlang",
+  "version": "0.1.0",
+  "description": "A Gen Z programming language that transpiles to JavaScript. no cap.",
+  "keywords": [
+    "gzlang",
+    "gen-z",
+    "transpiler",
+    "compiler",
+    "language",
+    "javascript",
+    "fun",
+    "esoteric"
+  ],
+  "license": "MIT",
+  "author": "Nimesh Mohanakrishnan",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "gzlang": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "tsup": "^8.5.1",
+    "typescript": "5.9",
+    "vitest": "^4.1.10"
+  }
+}

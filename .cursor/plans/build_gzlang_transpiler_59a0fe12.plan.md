@@ -4,25 +4,25 @@ overview: "Build gzlang from scratch in TypeScript: a full tokenizer → parser 
 todos:
   - id: scaffold
     content: "Scaffold TypeScript project: package.json, tsconfig, tsup, vitest, directory layout"
-    status: pending
+    status: completed
   - id: tokenizer
     content: Implement keyword mapping and tokenizer with line/column tracking
-    status: pending
+    status: completed
   - id: parser
     content: Implement AST definitions and recursive-descent parser for the JS subset
-    status: pending
+    status: completed
   - id: codegen
     content: Implement JS code generator producing readable output
-    status: pending
+    status: completed
   - id: cli
     content: Implement CLI with run and build commands
-    status: pending
+    status: completed
   - id: tests-examples
     content: Write Vitest unit and end-to-end tests plus example .gz programs
-    status: pending
+    status: completed
   - id: packaging
     content: Write README, finalize npm packaging, verify with npm pack and smoke test
-    status: pending
+    status: completed
 isProject: false
 ---
 

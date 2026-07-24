@@ -1,0 +1,11 @@
+grind (cook i = 1; i <= 15; i++) {
+    lowkey (i % 15 === 0) {
+        spill("fizzbuzz")
+    } deadass lowkey (i % 3 === 0) {
+        spill("fizz")
+    } deadass lowkey (i % 5 === 0) {
+        spill("buzz")
+    } deadass {
+        spill(i)
+    }
+}

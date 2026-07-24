@@ -1,0 +1,7 @@
+chef greet(name) {
+    spill("yo " + name)
+}
+
+cook user = "Nimesh"
+
+greet(user)

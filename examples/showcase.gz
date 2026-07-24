@@ -1,0 +1,82 @@
+// gzlang showcase: a little bit of everything
+
+lockedIn MIN_AGE = 18
+
+chef greet(name) {
+    spill("yo " + name)
+}
+
+squad Person {
+    constructor(name) {
+        me.name = name
+    }
+    intro() {
+        bet `its giving ${me.name}`
+    }
+}
+
+squad Dev extends Person {
+    constructor(name, lang) {
+        og(name)
+        me.lang = lang
+    }
+    intro() {
+        bet og.intro() + " who codes " + me.lang
+    }
+}
+
+waitForIt chef main() {
+    cook age = 24
+    lowkey (age >= MIN_AGE) {
+        spill("adult fr")
+    } deadass {
+        spill("minor, no cap")
+    }
+
+    grind (cook i = 0; i < 3; i++) {
+        lowkey (i === 1) {
+            keepCookin
+        }
+        spill(`grinding ${i}`)
+    }
+
+    lockedIn dev = spawn Dev("Nimesh", "gz")
+    spill(dev.intro())
+
+    yolo {
+        crashOut spawn Error("oops")
+    } caughtIn4K (err) {
+        spill("caught in 4k: " + err.message)
+    }
+
+    vibeCheck (whatIsThis MIN_AGE) {
+        itsGiving "number":
+            spill("its a number")
+            imOut
+        fr:
+            spill("no idea what that is")
+    }
+
+    cook items = [1, 2, 3].map(x => x * 2)
+    spill(items)
+
+    cook maybe = ghosted
+    spill(maybe ?? "it ghosted us")
+    spill(noCap, cap, idk)
+
+    cook n = 0
+    stillCookin (n < 2) {
+        n++
+    }
+    firstOff {
+        n--
+    } stillCookin (n > 0)
+    spill("n is " + n)
+
+    grind (lockedIn item of ["fit", "vibe"]) {
+        spill(item)
+    }
+}
+
+greet("bestie")
+holdUp main()

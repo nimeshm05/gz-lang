@@ -1,0 +1,15 @@
+waitForIt chef fetchVibe(delay) {
+    holdUp spawn Promise((resolve) => setTimeout(resolve, delay))
+    bet "vibes received after " + delay + "ms"
+}
+
+waitForIt chef main() {
+    yolo {
+        lockedIn vibe = holdUp fetchVibe(10)
+        spill(vibe)
+    } caughtIn4K (err) {
+        spill("caught in 4k: " + err.message)
+    }
+}
+
+holdUp main()
