@@ -1,0 +1,4 @@
+cook age = 24
+lowkey (age >= 18) {
+    spill("adult fr")
+}
