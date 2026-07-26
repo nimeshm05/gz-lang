@@ -1,0 +1,15 @@
+:root {
+  --color-surface: #ffffff;
+  --color-ink: #000000;
+
+  --font-display: "Faster One", system-ui, sans-serif;
+
+  /* Desktop targets: 160px type, 512px mascot, 680px content, 20px gap */
+  --font-size-brand: clamp(4rem, 12vw, 10rem);
+  --size-mascot: clamp(12rem, 40vw, 32rem);
+  --space-brand-gap: 1.25rem;
+  --layout-brand-width: min(42.5rem, 100%);
+
+  --motion-duration-enter: 600ms;
+  --motion-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+}

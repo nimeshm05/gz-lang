@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+When reading designs from figma, always make sure that the design tokens read are constructed in a way that's more reusable in the codebase.
