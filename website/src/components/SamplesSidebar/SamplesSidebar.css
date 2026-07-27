@@ -1,0 +1,116 @@
+.samples-sidebar {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: var(--size-sidebar);
+  height: 100%;
+  background: var(--color-surface);
+}
+
+.samples-sidebar-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border-bottom: var(--border-width) solid var(--color-neutral-200);
+}
+
+.samples-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem 0.75rem;
+  border: none;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--color-neutral-400);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-ui);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.samples-tab-selected {
+  background: var(--color-neutral-100);
+  color: var(--color-ink);
+}
+
+.samples-tab:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+.samples-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: auto;
+}
+
+.samples-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  color: var(--color-neutral-700);
+}
+
+.samples-list-item:hover {
+  background: var(--color-neutral-100);
+}
+
+.samples-list-item:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: -2px;
+}
+
+.samples-list-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-icon);
+  height: var(--size-icon);
+  overflow: clip;
+}
+
+.samples-list-icon img,
+.samples-list-chevron {
+  width: var(--size-icon);
+  height: var(--size-icon);
+}
+
+.samples-list-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-ui);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.samples-list-chevron {
+  flex-shrink: 0;
+}
+
+.samples-docs {
+  padding: 1rem 0.75rem;
+  color: var(--color-neutral-700);
+  font-size: var(--font-size-ui);
+}
+
+@media (max-width: 960px) {
+  .samples-sidebar {
+    width: 100%;
+    height: auto;
+    min-height: 30vh;
+    border-top: var(--border-width) solid var(--color-neutral-200);
+  }
+}

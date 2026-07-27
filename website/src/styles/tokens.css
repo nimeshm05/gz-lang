@@ -2,14 +2,42 @@
   --color-surface: #ffffff;
   --color-ink: #000000;
 
-  --font-display: "Faster One", system-ui, sans-serif;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-700: #404040;
 
-  /* Desktop targets: 160px type, 512px mascot, 680px content, 20px gap */
+  --color-accent: #a5fd15;
+  --color-accent-ink: #233800;
+
+  --font-display: "Faster One", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* Hero brand */
   --font-size-brand: clamp(4rem, 12vw, 10rem);
   --size-mascot: clamp(12rem, 40vw, 32rem);
   --space-brand-gap: 1.25rem;
   --layout-brand-width: min(42.5rem, 100%);
 
-  --motion-duration-enter: 600ms;
-  --motion-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  /* App shell — viewport relative */
+  --layout-app-width: 80vw;
+  --size-nav-height: 10dvh;
+  --size-nav-mascot: var(--size-nav-height);
+  --font-size-nav-wordmark: 1.5rem;
+  --font-size-ui: 0.875rem;
+  --space-page-y: 2dvh;
+  --border-width: 1px;
+  --radius-panel: 0.5rem;
+  --radius-control: 0.25rem;
+  --size-sidebar: 26%;
+  --size-icon: 1.25rem;
+  --size-console-max: 20vh;
+  --editor-line-height: 1.85rem;
+  --editor-padding: 0.75rem;
+
+  /* Motion */
+  --motion-ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --z-shared-travel: 100;
 }

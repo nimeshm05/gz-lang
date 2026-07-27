@@ -1,19 +1,16 @@
-import mascotUrl from "../../../assets/gzlang-mascot.svg";
+import { SharedLogo, SharedWordmark } from "../SharedBrand/SharedBrand";
 import "./BrandHero.css";
 
-export function BrandHero() {
+type BrandHeroProps = {
+  onMascotLoad?: () => void;
+};
+
+export function BrandHero({ onMascotLoad }: BrandHeroProps) {
   return (
     <main className="brand-hero">
       <div className="brand-hero-content">
-        <div className="brand-hero-mascot">
-          <img
-            src={mascotUrl}
-            alt="gzlang mascot"
-            width={512}
-            height={512}
-          />
-        </div>
-        <h1 className="brand-hero-title">gzlang</h1>
+        <SharedLogo size="hero" traveling onLoad={onMascotLoad} />
+        <SharedWordmark size="hero" traveling />
       </div>
     </main>
   );
