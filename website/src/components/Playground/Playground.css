@@ -19,6 +19,7 @@
   border: var(--border-width) solid var(--color-neutral-200);
   border-radius: var(--radius-panel);
   background: var(--color-surface);
+  box-shadow: var(--shadow-panel);
 }
 
 .playground-main {

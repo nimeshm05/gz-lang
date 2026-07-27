@@ -22,7 +22,7 @@
 
   /* App shell — viewport relative */
   --layout-app-width: 80vw;
-  --size-nav-height: 10dvh;
+  --size-nav-height: 80px;
   --size-nav-mascot: var(--size-nav-height);
   --font-size-nav-wordmark: 1.5rem;
   --font-size-ui: 0.875rem;
@@ -30,6 +30,9 @@
   --border-width: 0.8px;
   --radius-panel: 0.5rem;
   --radius-control: 0.25rem;
+  --shadow-panel:
+    lch(0 0 0 / 0.02) 0px 3px 6px -2px,
+    lch(0 0 0 / 0.04) 0px 1px 1px;
   --size-sidebar: 26%;
   --size-icon: 1.25rem;
   --size-console-max: 20vh;
