@@ -6,7 +6,7 @@ export type { Token, TokenType } from "./tokenizer/tokens.js";
 export { parse } from "./parser/parser.js";
 export type * as AST from "./parser/ast.js";
 export { generate } from "./codegen/codegen.js";
-export { KEYWORDS, BUILTINS } from "./keywords.js";
+export { KEYWORDS, BUILTINS, PASSTHROUGH_KEYWORDS } from "./keywords.js";
 export { GzSyntaxError } from "./errors.js";
 
 /** Transpiles gzlang source code to JavaScript. */

@@ -5,6 +5,7 @@ import chevronUpIcon from "../../../assets/icons/chevron-up.svg";
 import type { Sample } from "../../data/samples";
 import { EASE_OUT_CUBIC, REVEAL_DELAYS } from "../../motion";
 import { Button } from "../Button/Button";
+import { CodeEditor } from "../CodeEditor/CodeEditor";
 import { SamplesSidebar } from "../SamplesSidebar/SamplesSidebar";
 import "./Playground.css";
 
@@ -106,15 +107,12 @@ export function Playground({ reveal = false }: PlaygroundProps) {
                 </span>
               ))}
             </div>
-            <textarea
-              className="playground-input"
+            <CodeEditor
               value={source}
-              onChange={(event) => setSource(event.target.value)}
+              onChange={setSource}
+              lineCount={lineCount}
               placeholder="Type your code here"
-              spellCheck={false}
               aria-label="Code playground editor"
-              rows={lineCount}
-              style={{ height: `calc(${lineCount} * var(--editor-line-height) + 2 * var(--editor-padding))` }}
             />
           </div>
 

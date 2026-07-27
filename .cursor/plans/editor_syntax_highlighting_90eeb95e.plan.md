@@ -4,16 +4,16 @@ overview: Add VS Code-style syntax highlighting to the playground editor using a
 todos:
   - id: highlight-lib
     content: Export PASSTHROUGH_KEYWORDS from gzlang and add highlightGzlang.ts regex highlighter
-    status: pending
+    status: completed
   - id: code-editor
     content: Add syntax color tokens and CodeEditor overlay component + CSS
-    status: pending
+    status: completed
   - id: wire-playground
     content: Wire CodeEditor into Playground and migrate editor styles
-    status: pending
+    status: completed
   - id: verify-highlight
     content: Rebuild gzlang + website and verify highlighting on samples
-    status: pending
+    status: completed
 isProject: false
 ---
 

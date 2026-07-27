@@ -36,6 +36,14 @@
   --editor-line-height: 1.85rem;
   --editor-padding: 0.75rem;
 
+  /* Syntax highlighting (VS Code light theme) */
+  --syntax-keyword: #0000ff;
+  --syntax-string: #a31515;
+  --syntax-comment: #008000;
+  --syntax-number: #098658;
+  --syntax-builtin: #795e26;
+  --syntax-default: var(--color-neutral-700);
+
   /* Motion */
   --motion-ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
