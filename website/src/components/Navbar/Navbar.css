@@ -6,7 +6,6 @@
   width: var(--layout-app-width);
   height: var(--size-nav-height);
   padding-inline: 0;
-  background: var(--color-surface);
 }
 
 .navbar-hidden {

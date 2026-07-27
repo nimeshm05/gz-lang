@@ -95,7 +95,7 @@ export function Playground({ reveal = false }: PlaygroundProps) {
           }
         >
           <div className="playground-toolbar">
-            <h2 className="playground-title">Code Playground</h2>
+            <h2 className="playground-title">Cook Zone</h2>
             <Button label="Run Code" reveal={reveal} onClick={handleRun} />
           </div>
 
@@ -123,7 +123,7 @@ export function Playground({ reveal = false }: PlaygroundProps) {
               onClick={() => setConsoleOpen((open) => !open)}
               aria-expanded={consoleOpen}
             >
-              <span className="playground-console-title">Output</span>
+              <span className="playground-console-title">Receipts</span>
               <img
                 className={`playground-console-chevron ${consoleOpen ? "" : "playground-console-chevron-collapsed"}`}
                 src={chevronUpIcon}
