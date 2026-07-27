@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import mirrorRoundIcon from "../../../assets/icons/mirror-round.svg";
 import chevronRightIcon from "../../../assets/icons/chevron-right.svg";
 import { PREMIUM_EASE, REVEAL_DELAYS } from "../../motion";
 import "./ContribDeets.css";

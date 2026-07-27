@@ -1,8 +1,7 @@
 import { motion } from "motion/react";
-import { useState } from "react";
-import chevronRightIcon from "../../../assets/icons/chevron-right.svg";
+import { useRef, useState } from "react";
 import { SAMPLES, type Sample } from "../../data/samples";
-import { EASE_OUT_CUBIC, REVEAL_DELAYS } from "../../motion";
+import { EASE_OUT_CUBIC, PREMIUM_EASE, REVEAL_DELAYS } from "../../motion";
 import "./SamplesSidebar.css";
 
 type SidebarTab = "samples" | "documentation";
@@ -12,11 +11,35 @@ type SamplesSidebarProps = {
   onSelectSample: (sample: Sample) => void;
 };
 
+const listVariants = {
+  hidden: {},
+  show: (delayChildren: number) => ({
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren,
+    },
+  }),
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: PREMIUM_EASE,
+    },
+  },
+};
+
 export function SamplesSidebar({
   reveal = false,
   onSelectSample,
 }: SamplesSidebarProps) {
   const [tab, setTab] = useState<SidebarTab>("samples");
+  const introPending = useRef(reveal);
+  const listDelay = introPending.current ? REVEAL_DELAYS.sidebar + 0.12 : 0.04;
 
   return (
     <motion.aside
@@ -51,9 +74,18 @@ export function SamplesSidebar({
       </div>
 
       {tab === "samples" ? (
-        <ul className="samples-list">
+        <motion.ul
+          className="samples-list"
+          variants={listVariants}
+          initial={reveal || introPending.current ? "hidden" : false}
+          animate="show"
+          custom={listDelay}
+          onAnimationComplete={() => {
+            introPending.current = false;
+          }}
+        >
           {SAMPLES.map((sample) => (
-            <li key={sample.id}>
+            <motion.li key={sample.id} variants={itemVariants}>
               <button
                 type="button"
                 className="samples-list-item"
@@ -63,17 +95,10 @@ export function SamplesSidebar({
                   <img src={sample.icon} alt="" width={20} height={20} />
                 </span>
                 <span className="samples-list-label">{sample.label}</span>
-                {/* <img
-                  className="samples-list-chevron"
-                  src={chevronRightIcon}
-                  alt=""
-                  width={20}
-                  height={20}
-                /> */}
               </button>
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       ) : (
         <div className="samples-docs">
           <p>Docs coming soon. For now, cook with the samples.</p>
