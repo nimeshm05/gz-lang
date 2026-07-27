@@ -13,7 +13,10 @@ type PlaygroundProps = {
   reveal?: boolean;
 };
 
-function captureRun(source: string): string {
+const AsyncFunction = Object.getPrototypeOf(async function () {})
+  .constructor as new (...args: string[]) => () => Promise<unknown>;
+
+async function captureRun(source: string): Promise<string> {
   const logs: string[] = [];
   const originalLog = console.log;
 
@@ -29,8 +32,8 @@ function captureRun(source: string): string {
       );
     };
 
-    const runner = new Function(js);
-    const result = runner();
+    const runner = new AsyncFunction(js);
+    const result = await runner();
 
     if (result !== undefined) {
       logs.push(String(result));
@@ -68,9 +71,9 @@ export function Playground({ reveal = false }: PlaygroundProps) {
     setConsoleOutput("");
   }
 
-  function handleRun() {
+  async function handleRun() {
     setConsoleOpen(true);
-    setConsoleOutput(captureRun(source));
+    setConsoleOutput(await captureRun(source));
   }
 
   return (
