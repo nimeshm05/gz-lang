@@ -48,6 +48,24 @@
   padding: 0;
   list-style: none;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neutral-300) transparent;
+}
+
+.samples-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.samples-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.samples-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-neutral-300);
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
 }
 
 .samples-list-item {

@@ -12,6 +12,11 @@ import toggleLeftIcon from "../../assets/icons/toggle-left.svg";
 import cameraIcon from "../../assets/icons/camera.svg";
 import usersIcon from "../../assets/icons/users.svg";
 import timerIcon from "../../assets/icons/timer.svg";
+import gitBranchIcon from "../../assets/icons/git-branch.svg";
+import skipForwardIcon from "../../assets/icons/skip-forward.svg";
+import ghostIcon from "../../assets/icons/ghost.svg";
+import scanSearchIcon from "../../assets/icons/scan-search.svg";
+import repeatIcon from "../../assets/icons/repeat.svg";
 
 export type Sample = {
   id: string;
@@ -220,6 +225,85 @@ waitForIt chef main() {
 }
 
 holdUp main()
+`,
+  },
+  {
+    id: "dev-squad",
+    label: "Dev squad",
+    icon: gitBranchIcon,
+    source: `squad Person {
+    constructor(name) {
+        me.name = name
+    }
+    intro() {
+        bet "its giving " + me.name
+    }
+}
+
+squad Dev extends Person {
+    constructor(name, lang) {
+        og(name)
+        me.lang = lang
+    }
+    intro() {
+        bet og.intro() + " who codes " + me.lang
+    }
+}
+
+lockedIn dev = spawn Dev("Nimesh", "gz")
+spill(dev.intro())
+`,
+  },
+  {
+    id: "skip-the-mid",
+    label: "Skip the mid",
+    icon: skipForwardIcon,
+    source: `lockedIn vibes = ["fire", "mid", "chill"]
+
+grind (lockedIn vibe of vibes) {
+    lowkey (vibe === "mid") {
+        keepCookin
+    }
+    spill("vibe check: " + vibe)
+}
+`,
+  },
+  {
+    id: "ghosted-fr",
+    label: "Ghosted fr",
+    icon: ghostIcon,
+    source: `cook reply = ghosted
+spill(reply ?? "they ghosted us")
+
+cook msg = "yo"
+spill(msg ?? "they ghosted us")
+`,
+  },
+  {
+    id: "what-is-this",
+    label: "What is this?",
+    icon: scanSearchIcon,
+    source: `lockedIn score = 42
+
+vibeCheck (whatIsThis score) {
+    itsGiving "number":
+        spill("its a number fr")
+        imOut
+    fr:
+        spill("idk what that is")
+}
+`,
+  },
+  {
+    id: "run-it-back",
+    label: "Run it back",
+    icon: repeatIcon,
+    source: `cook n = 0
+
+firstOff {
+    spill("rep " + n)
+    n = n + 1
+} stillCookin (n < 3)
 `,
   },
 ];
