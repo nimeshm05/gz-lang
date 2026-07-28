@@ -6,6 +6,7 @@ import type { Sample } from "../../data/samples";
 import { EASE_OUT_CUBIC, REVEAL_DELAYS } from "../../motion";
 import { Button } from "../Button/Button";
 import { CodeEditor } from "../CodeEditor/CodeEditor";
+import { ScrollArea } from "../ScrollArea/ScrollArea";
 import { SamplesSidebar } from "../SamplesSidebar/SamplesSidebar";
 import "./Playground.css";
 
@@ -102,7 +103,7 @@ export function Playground({ reveal = false }: PlaygroundProps) {
             <Button label="Run Code" reveal={reveal} onClick={handleRun} />
           </div>
 
-          <div className="playground-editor">
+          <ScrollArea className="playground-editor">
             <div className="playground-gutter" aria-hidden="true">
               {lineNumbers.map((line) => (
                 <span key={line} className="playground-line-number">
@@ -117,7 +118,7 @@ export function Playground({ reveal = false }: PlaygroundProps) {
               placeholder="Type your code here"
               aria-label="Code playground editor"
             />
-          </div>
+          </ScrollArea>
 
           <div className="playground-console">
             <button
@@ -136,9 +137,9 @@ export function Playground({ reveal = false }: PlaygroundProps) {
               />
             </button>
             {consoleOpen ? (
-              <div className="playground-console-output">
+              <ScrollArea className="playground-console-output">
                 {consoleOutput || " "}
-              </div>
+              </ScrollArea>
             ) : null}
           </div>
         </motion.div>

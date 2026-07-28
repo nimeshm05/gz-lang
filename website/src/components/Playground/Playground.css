@@ -55,7 +55,6 @@
   flex: 1 1 auto;
   align-items: stretch;
   min-height: 0;
-  overflow: auto;
 }
 
 .playground-gutter {
@@ -118,7 +117,6 @@
 .playground-console-output {
   margin: 0;
   max-height: var(--size-console-max);
-  overflow: auto;
   padding: 0 0.75rem 0.75rem;
   color: var(--color-neutral-700);
   font-family: var(--font-mono);
@@ -149,6 +147,12 @@
   .playground-shell {
     flex-direction: column;
     overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .playground-shell::-webkit-scrollbar {
+    display: none;
   }
 
   .playground-main {
