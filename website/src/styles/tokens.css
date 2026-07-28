@@ -3,6 +3,7 @@
   --color-ink: #000000;
 
   --color-neutral-100: #f5f5f5;
+  --color-neutral-50: #fafafa;
   --color-neutral-200: #e5e5e5;
   --color-neutral-300: #d4d4d4;
   --color-neutral-400: #a3a3a3;
@@ -33,7 +34,7 @@
   --shadow-panel:
     lch(0 0 0 / 0.02) 0px 3px 6px -2px,
     lch(0 0 0 / 0.04) 0px 1px 1px;
-  --size-sidebar: 26%;
+  --size-sidebar: 30%;
   --size-icon: 1rem;
   --size-console-max: 20vh;
   --editor-line-height: 1.85rem;

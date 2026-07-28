@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
 import { useRef, useState } from "react";
+import { DocumentationPanel } from "../DocumentationPanel/DocumentationPanel";
+import { ScrollArea } from "../ScrollArea/ScrollArea";
 import { SAMPLES, type Sample } from "../../data/samples";
-import { EASE_OUT_CUBIC, REVEAL_DELAYS } from "../../motion";
+import { EASE_OUT_CUBIC, REVEAL_DELAYS, SIDEBAR_ITEM_VARIANTS, SIDEBAR_LIST_VARIANTS } from "../../motion";
 import "./SamplesSidebar.css";
 
 type SidebarTab = "samples" | "documentation";
@@ -11,31 +13,8 @@ type SamplesSidebarProps = {
   onSelectSample: (sample: Sample) => void;
 };
 
-const ITEM_SPRING = {
-  type: "spring" as const,
-  stiffness: 80,
-  damping: 8,
-  mass: 0.6,
-};
-
-const listVariants = {
-  hidden: {},
-  show: (delayChildren: number) => ({
-    transition: {
-      staggerChildren: 0.03,
-      delayChildren,
-    },
-  }),
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 60 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: ITEM_SPRING,
-  },
-};
+const listVariants = SIDEBAR_LIST_VARIANTS;
+const itemVariants = SIDEBAR_ITEM_VARIANTS;
 
 export function SamplesSidebar({
   reveal = false,
@@ -78,7 +57,8 @@ export function SamplesSidebar({
       </div>
 
       {tab === "samples" ? (
-        <motion.ul
+        <ScrollArea
+          as={motion.ul}
           className="samples-list"
           variants={listVariants}
           initial={reveal || introPending.current ? "hidden" : false}
@@ -102,11 +82,9 @@ export function SamplesSidebar({
               </button>
             </motion.li>
           ))}
-        </motion.ul>
+        </ScrollArea>
       ) : (
-        <div className="samples-docs">
-          <p>Docs coming soon. For now, cook with the samples.</p>
-        </div>
+        <DocumentationPanel />
       )}
     </motion.aside>
   );

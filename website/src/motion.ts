@@ -16,3 +16,29 @@ export const REVEAL_DELAYS = {
   runButton: 0.45,
   contrib: 0.55,
 } as const;
+
+export const SIDEBAR_ITEM_SPRING = {
+  type: "spring" as const,
+  stiffness: 80,
+  damping: 8,
+  mass: 0.6,
+};
+
+export const SIDEBAR_LIST_VARIANTS = {
+  hidden: {},
+  show: (delayChildren: number) => ({
+    transition: {
+      staggerChildren: 0.03,
+      delayChildren,
+    },
+  }),
+};
+
+export const SIDEBAR_ITEM_VARIANTS = {
+  hidden: { opacity: 0, y: 60 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: SIDEBAR_ITEM_SPRING,
+  },
+};
