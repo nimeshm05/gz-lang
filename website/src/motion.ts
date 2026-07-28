@@ -24,6 +24,11 @@ export const SIDEBAR_ITEM_SPRING = {
   mass: 0.6,
 };
 
+export const TAB_INDICATOR_TRANSITION = {
+  duration: 0.3,
+  ease: EASE_OUT_CUBIC,
+};
+
 export const SIDEBAR_LIST_VARIANTS = {
   hidden: {},
   show: (delayChildren: number) => ({

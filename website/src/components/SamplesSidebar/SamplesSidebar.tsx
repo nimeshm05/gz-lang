@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { DocumentationPanel } from "../DocumentationPanel/DocumentationPanel";
 import { ScrollArea } from "../ScrollArea/ScrollArea";
 import { SAMPLES, type Sample } from "../../data/samples";
-import { EASE_OUT_CUBIC, REVEAL_DELAYS, SIDEBAR_ITEM_VARIANTS, SIDEBAR_LIST_VARIANTS } from "../../motion";
+import { EASE_OUT_CUBIC, REVEAL_DELAYS, SIDEBAR_ITEM_VARIANTS, SIDEBAR_LIST_VARIANTS, TAB_INDICATOR_TRANSITION } from "../../motion";
 import "./SamplesSidebar.css";
 
 type SidebarTab = "samples" | "documentation";
@@ -12,6 +12,11 @@ type SamplesSidebarProps = {
   reveal?: boolean;
   onSelectSample: (sample: Sample) => void;
 };
+
+const SIDEBAR_TABS: { id: SidebarTab; label: string }[] = [
+  { id: "samples", label: "Cookbooks" },
+  { id: "documentation", label: "Documentation" },
+];
 
 const listVariants = SIDEBAR_LIST_VARIANTS;
 const itemVariants = SIDEBAR_ITEM_VARIANTS;
@@ -40,20 +45,30 @@ export function SamplesSidebar({
       }
     >
       <div className="samples-sidebar-tabs">
-        <button
-          type="button"
-          className={`samples-tab ${tab === "samples" ? "samples-tab-selected" : ""}`}
-          onClick={() => setTab("samples")}
-        >
-          Samples
-        </button>
-        <button
-          type="button"
-          className={`samples-tab ${tab === "documentation" ? "samples-tab-selected" : ""}`}
-          onClick={() => setTab("documentation")}
-        >
-          Documentation
-        </button>
+        {SIDEBAR_TABS.map(({ id, label }) => {
+          const isActive = tab === id;
+
+          return (
+            <button
+              key={id}
+              type="button"
+              role="tab"
+              className={`samples-tab ${isActive ? "samples-tab-active" : ""}`}
+              aria-selected={isActive}
+              onClick={() => setTab(id)}
+            >
+              {isActive ? (
+                <motion.span
+                  layoutId="sidebar-tab-indicator"
+                  className="samples-tab-indicator"
+                  transition={TAB_INDICATOR_TRANSITION}
+                  aria-hidden="true"
+                />
+              ) : null}
+              <span className="samples-tab-label">{label}</span>
+            </button>
+          );
+        })}
       </div>
 
       {tab === "samples" ? (

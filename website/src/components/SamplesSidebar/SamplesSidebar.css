@@ -16,6 +16,7 @@
 }
 
 .samples-tab {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -30,9 +31,21 @@
   white-space: nowrap;
 }
 
-.samples-tab-selected {
-  background: var(--color-neutral-100);
+.samples-tab-active {
   color: var(--color-ink);
+}
+
+.samples-tab-indicator {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: var(--radius-control);
+  background: var(--color-neutral-100);
+}
+
+.samples-tab-label {
+  position: relative;
+  z-index: 1;
 }
 
 .samples-tab:focus-visible {
