@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
+import { MoveHorizontal } from "lucide-react";
 import { useState } from "react";
 import chevronUpIcon from "../../../assets/icons/chevron-up.svg";
-import moveHorizontalIcon from "../../../assets/icons/move-horizontal.svg";
 import { KEYWORD_CATEGORIES } from "../../data/keywordDocs";
 import {
   SIDEBAR_ITEM_VARIANTS,
@@ -64,12 +64,10 @@ export function DocumentationPanel() {
                       <span className="documentation-pill documentation-pill-slang">
                         {entry.slang}
                       </span>
-                      <img
+                      <MoveHorizontal
                         className="documentation-arrow"
-                        src={moveHorizontalIcon}
-                        alt=""
-                        width={20}
-                        height={20}
+                        size={20}
+                        aria-hidden="true"
                       />
                       <span className="documentation-pill documentation-pill-js">
                         {entry.js}
