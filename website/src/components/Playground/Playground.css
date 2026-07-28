@@ -125,6 +125,24 @@
   font-size: var(--font-size-ui);
   white-space: pre-wrap;
   word-break: break-word;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neutral-300) transparent;
+}
+
+.playground-console-output::-webkit-scrollbar {
+  width: 6px;
+}
+
+.playground-console-output::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.playground-console-output::-webkit-scrollbar-thumb {
+  background-color: var(--color-neutral-300);
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
 }
 
 @media (max-width: 960px) {
