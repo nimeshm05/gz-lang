@@ -4,6 +4,7 @@ import "./Button.css";
 
 type ButtonProps = {
   label: string;
+  variant?: "primary" | "secondary";
   reveal?: boolean;
   onClick?: () => void;
   className?: string;
@@ -11,6 +12,7 @@ type ButtonProps = {
 
 export function Button({
   label,
+  variant = "primary",
   reveal = false,
   className = "",
   onClick,
@@ -18,7 +20,7 @@ export function Button({
   return (
     <motion.button
       type="button"
-      className={`primary-button ${className}`.trim()}
+      className={`ui-button ui-button-${variant} ${className}`.trim()}
       onClick={onClick}
       initial={reveal ? { opacity: 0, scale: 0.94 } : false}
       animate={{ opacity: 1, scale: 1 }}

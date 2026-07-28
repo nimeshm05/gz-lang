@@ -2,13 +2,11 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
   transform-origin: center center;
-}
-
-.contrib-deets-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  flex-shrink: 0;
 }
 
 .contrib-deets-label {
@@ -17,12 +15,6 @@
   font-weight: 400;
   color: var(--color-ink);
   white-space: nowrap;
-}
-
-.contrib-deets-chevron {
-  width: var(--size-icon);
-  height: var(--size-icon);
-  flex-shrink: 0;
 }
 
 .contrib-deets:hover .contrib-deets-label {
