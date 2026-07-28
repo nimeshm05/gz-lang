@@ -22,7 +22,7 @@ export function DocumentationPanel() {
       animate="show"
       custom={0.04}
     >
-      {KEYWORD_CATEGORIES.map((category, index) => {
+      {KEYWORD_CATEGORIES.map((category) => {
         const isExpanded = expandedId === category.id;
 
         return (
@@ -40,9 +40,6 @@ export function DocumentationPanel() {
               }
             >
               <span className="documentation-section-heading">
-                <span className="documentation-section-index">
-                  {index + 1}
-                </span>
                 <span className="documentation-section-label">
                   {category.label}
                 </span>
