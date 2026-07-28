@@ -1,0 +1,110 @@
+.contrib-deets-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.contrib-deets-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: min(340px, calc(100% - 3rem));
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-neutral-100);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+  transform-origin: center center;
+}
+
+.contrib-deets-dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.75rem;
+  border-bottom: var(--border-width) solid var(--color-neutral-100);
+}
+
+.contrib-deets-dialog-title {
+  margin: 0;
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.625rem;
+  color: var(--color-ink);
+}
+
+.contrib-deets-dialog-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.75rem 0.75rem;
+}
+
+.contrib-deets-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.contrib-deets-dialog-copy {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+  color: var(--color-neutral-700);
+}
+
+.contrib-deets-dialog-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.contrib-deets-dialog-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+  color: var(--color-neutral-700);
+  text-decoration: none;
+}
+
+.contrib-deets-dialog-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.contrib-deets-dialog-link:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+  border-radius: var(--radius-control);
+}
+
+.contrib-deets-dialog-link-icon {
+  width: var(--size-icon);
+  height: var(--size-icon);
+  flex-shrink: 0;
+}
+
+.contrib-deets-dialog-close {
+  width: 100%;
+}

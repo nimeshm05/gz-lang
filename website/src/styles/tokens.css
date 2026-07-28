@@ -34,7 +34,7 @@
     lch(0 0 0 / 0.02) 0px 3px 6px -2px,
     lch(0 0 0 / 0.04) 0px 1px 1px;
   --size-sidebar: 26%;
-  --size-icon: 1.25rem;
+  --size-icon: 1rem;
   --size-console-max: 20vh;
   --editor-line-height: 1.85rem;
   --editor-padding: 0.75rem;
