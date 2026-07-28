@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useRef, useState } from "react";
 import { SAMPLES, type Sample } from "../../data/samples";
-import { EASE_OUT_CUBIC, PREMIUM_EASE, REVEAL_DELAYS } from "../../motion";
+import { EASE_OUT_CUBIC, REVEAL_DELAYS } from "../../motion";
 import "./SamplesSidebar.css";
 
 type SidebarTab = "samples" | "documentation";
@@ -11,25 +11,29 @@ type SamplesSidebarProps = {
   onSelectSample: (sample: Sample) => void;
 };
 
+const ITEM_SPRING = {
+  type: "spring" as const,
+  stiffness: 80,
+  damping: 8,
+  mass: 0.6,
+};
+
 const listVariants = {
   hidden: {},
   show: (delayChildren: number) => ({
     transition: {
-      staggerChildren: 0.06,
+      staggerChildren: 0.03,
       delayChildren,
     },
   }),
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
+  hidden: { opacity: 0, y: 60 },
   show: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.3,
-      ease: PREMIUM_EASE,
-    },
+    transition: ITEM_SPRING,
   },
 };
 
