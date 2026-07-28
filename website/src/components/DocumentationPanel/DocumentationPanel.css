@@ -113,18 +113,21 @@
   border: var(--border-width) solid var(--color-keyword-pill-border);
   background: var(--color-keyword-pill);
   color: var(--color-surface);
+  box-shadow: var(--shadow-panel);
 }
 
 .documentation-pill-js {
   border: var(--border-width) solid var(--color-neutral-200);
   background: var(--color-surface);
   color: var(--color-ink);
+  box-shadow: var(--shadow-panel);
 }
 
 .documentation-arrow {
   flex-shrink: 0;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-neutral-400);
 }
 
 .documentation-entry-description {
