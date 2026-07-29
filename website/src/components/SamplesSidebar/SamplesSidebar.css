@@ -40,6 +40,13 @@
   outline-offset: 2px;
 }
 
+.samples-sidebar-panel {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+}
+
 .samples-list {
   display: flex;
   flex-direction: column;

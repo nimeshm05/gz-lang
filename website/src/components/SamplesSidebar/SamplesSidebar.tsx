@@ -1,9 +1,17 @@
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useRef, useState } from "react";
 import { DocumentationPanel } from "../DocumentationPanel/DocumentationPanel";
 import { ScrollArea } from "../ScrollArea/ScrollArea";
 import { SAMPLES, type Sample } from "../../data/samples";
-import { EASE_OUT_CUBIC, REVEAL_DELAYS, SIDEBAR_ITEM_VARIANTS, SIDEBAR_LIST_VARIANTS } from "../../motion";
+import {
+  EASE_OUT_CUBIC,
+  REVEAL_DELAYS,
+  SIDEBAR_BLUR,
+  SIDEBAR_ITEM_VARIANTS,
+  SIDEBAR_LIST_VARIANTS,
+  SIDEBAR_TAB_PANEL_TRANSITION,
+  SIDEBAR_TAB_PANEL_VARIANTS,
+} from "../../motion";
 import "./SamplesSidebar.css";
 
 type SidebarTab = "samples" | "documentation";
@@ -20,6 +28,7 @@ const SIDEBAR_TABS: { id: SidebarTab; label: string }[] = [
 
 const listVariants = SIDEBAR_LIST_VARIANTS;
 const itemVariants = SIDEBAR_ITEM_VARIANTS;
+const tabPanelVariants = SIDEBAR_TAB_PANEL_VARIANTS;
 
 export function SamplesSidebar({
   reveal = false,
@@ -32,8 +41,10 @@ export function SamplesSidebar({
   return (
     <motion.aside
       className="samples-sidebar"
-      initial={reveal ? { opacity: 0, x: 12 } : false}
-      animate={{ opacity: 1, x: 0 }}
+      initial={
+        reveal ? { opacity: 0, x: 12, filter: `blur(${SIDEBAR_BLUR})` } : false
+      }
+      animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
       transition={
         reveal
           ? {
@@ -63,36 +74,58 @@ export function SamplesSidebar({
         })}
       </div>
 
-      {tab === "samples" ? (
-        <ScrollArea
-          as={motion.ul}
-          className="samples-list"
-          variants={listVariants}
-          initial={reveal || introPending.current ? "hidden" : false}
-          animate="show"
-          custom={listDelay}
-          onAnimationComplete={() => {
-            introPending.current = false;
-          }}
-        >
-          {SAMPLES.map((sample) => (
-            <motion.li key={sample.id} variants={itemVariants}>
-              <button
-                type="button"
-                className="samples-list-item"
-                onClick={() => onSelectSample(sample)}
-              >
-                <span className="samples-list-icon">
-                  <img src={sample.icon} alt="" width={20} height={20} />
-                </span>
-                <span className="samples-list-label">{sample.label}</span>
-              </button>
-            </motion.li>
-          ))}
-        </ScrollArea>
-      ) : (
-        <DocumentationPanel />
-      )}
+      <AnimatePresence mode="wait">
+        {tab === "samples" ? (
+          <motion.div
+            key="samples"
+            className="samples-sidebar-panel"
+            variants={tabPanelVariants}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            transition={SIDEBAR_TAB_PANEL_TRANSITION}
+          >
+            <ScrollArea
+              as={motion.ul}
+              className="samples-list"
+              variants={listVariants}
+              initial={reveal || introPending.current ? "hidden" : false}
+              animate="show"
+              custom={listDelay}
+              onAnimationComplete={() => {
+                introPending.current = false;
+              }}
+            >
+              {SAMPLES.map((sample) => (
+                <motion.li key={sample.id} variants={itemVariants}>
+                  <button
+                    type="button"
+                    className="samples-list-item"
+                    onClick={() => onSelectSample(sample)}
+                  >
+                    <span className="samples-list-icon">
+                      <img src={sample.icon} alt="" width={20} height={20} />
+                    </span>
+                    <span className="samples-list-label">{sample.label}</span>
+                  </button>
+                </motion.li>
+              ))}
+            </ScrollArea>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="documentation"
+            className="samples-sidebar-panel"
+            variants={tabPanelVariants}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            transition={SIDEBAR_TAB_PANEL_TRANSITION}
+          >
+            <DocumentationPanel />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.aside>
   );
 }
