@@ -136,6 +136,7 @@
   font-family: var(--font-mono);
   font-size: var(--font-size-ui);
   font-weight: 400;
+  margin-bottom: 1rem;
 }
 
 .documentation-divider {

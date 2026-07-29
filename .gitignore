@@ -2,3 +2,6 @@ node_modules/
 dist/
 *.tgz
 .DS_Store
+
+# Personal portfolio / course reflection notes (not for the repo)
+docs/competency-reflection.md
