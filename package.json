@@ -1,6 +1,6 @@
 {
   "name": "gzlang",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Gen Z programming language that transpiles to JavaScript. no cap.",
   "keywords": [
     "gzlang",
