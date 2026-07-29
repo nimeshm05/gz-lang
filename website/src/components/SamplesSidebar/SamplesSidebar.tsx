@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { DocumentationPanel } from "../DocumentationPanel/DocumentationPanel";
 import { ScrollArea } from "../ScrollArea/ScrollArea";
 import { SAMPLES, type Sample } from "../../data/samples";
-import { EASE_OUT_CUBIC, REVEAL_DELAYS, SIDEBAR_ITEM_VARIANTS, SIDEBAR_LIST_VARIANTS, TAB_INDICATOR_TRANSITION } from "../../motion";
+import { EASE_OUT_CUBIC, REVEAL_DELAYS, SIDEBAR_ITEM_VARIANTS, SIDEBAR_LIST_VARIANTS } from "../../motion";
 import "./SamplesSidebar.css";
 
 type SidebarTab = "samples" | "documentation";
@@ -53,19 +53,11 @@ export function SamplesSidebar({
               key={id}
               type="button"
               role="tab"
-              className={`samples-tab ${isActive ? "samples-tab-active" : ""}`}
+              className={`samples-tab ${isActive ? "samples-tab-selected" : ""}`}
               aria-selected={isActive}
               onClick={() => setTab(id)}
             >
-              {isActive ? (
-                <motion.span
-                  layoutId="sidebar-tab-indicator"
-                  className="samples-tab-indicator"
-                  transition={TAB_INDICATOR_TRANSITION}
-                  aria-hidden="true"
-                />
-              ) : null}
-              <span className="samples-tab-label">{label}</span>
+              {label}
             </button>
           );
         })}
