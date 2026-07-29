@@ -1,5 +1,7 @@
 # gzlang
 
+Online Playground: [https://gz-lang.vercel.app/](https://gz-lang.vercel.app/)
+
 A Gen Z programming language that transpiles to JavaScript. no cap.
 
 Write JavaScript using Gen Z slang -- `gzlang` converts `.gz` files into clean, readable JavaScript that runs anywhere JavaScript runs (Node.js, Bun, Deno, modern browsers).
@@ -41,6 +43,8 @@ gzlang build app.gz
 gzlang build app.gz -o dist/app.js
 ```
 
+
+
 ### Interactive REPL
 
 Run `gzlang` with no arguments (or `gzlang repl`) to get an interactive prompt, just like `python` or `node`:
@@ -74,41 +78,43 @@ The package also exports the lower-level pieces (`tokenize`, `parse`, `generate`
 
 ## The vocabulary
 
-| JavaScript | gzlang | Why |
-| --- | --- | --- |
-| `let` | `cook` | Start cooking (create something) |
-| `const` | `lockedIn` | Value is locked in |
-| `var` | `legacy` | Nobody should use it anymore |
-| `if` | `lowkey` | "Lowkey true" |
-| `else` | `deadass` | Otherwise, deadass |
-| `switch` | `vibeCheck` | Check the vibe |
-| `case` | `itsGiving` | It's giving... |
-| `default` | `fr` | For real fallback |
-| `for` | `grind` | Keep grinding |
-| `while` | `stillCookin` | Keep cooking |
-| `do` | `firstOff` | Do first |
-| `break` | `imOut` | I'm out |
-| `continue` | `keepCookin` | Continue looping |
-| `function` | `chef` | The chef makes things happen |
-| `return` | `bet` | Bet, here's the result |
-| `class` | `squad` | A squad of behaviors |
-| `new` | `spawn` | Spawn an object |
-| `this` | `me` | Refers to me |
-| `true` | `noCap` | True, no cap |
-| `false` | `cap` | That's cap |
-| `null` | `ghosted` | Nothing there |
-| `undefined` | `idk` | Unknown |
-| `try` | `yolo` | Give it a shot |
-| `catch` | `caughtIn4K` | Caught the error |
-| `throw` | `crashOut` | Throw an exception |
-| `async` | `waitForIt` | Async function |
-| `await` | `holdUp` | Wait here |
-| `import` | `yoink` | Bring it in |
-| `export` | `putOn` | Share it |
-| `console.log` | `spill` | Spill the tea |
-| `typeof` | `whatIsThis` | Inspect type |
-| `delete` | `yeet` | Throw it away |
-| `super` | `og` | Original/base class |
+
+| JavaScript    | gzlang        | Why                              |
+| ------------- | ------------- | -------------------------------- |
+| `let`         | `cook`        | Start cooking (create something) |
+| `const`       | `lockedIn`    | Value is locked in               |
+| `var`         | `legacy`      | Nobody should use it anymore     |
+| `if`          | `lowkey`      | "Lowkey true"                    |
+| `else`        | `deadass`     | Otherwise, deadass               |
+| `switch`      | `vibeCheck`   | Check the vibe                   |
+| `case`        | `itsGiving`   | It's giving...                   |
+| `default`     | `fr`          | For real fallback                |
+| `for`         | `grind`       | Keep grinding                    |
+| `while`       | `stillCookin` | Keep cooking                     |
+| `do`          | `firstOff`    | Do first                         |
+| `break`       | `imOut`       | I'm out                          |
+| `continue`    | `keepCookin`  | Continue looping                 |
+| `function`    | `chef`        | The chef makes things happen     |
+| `return`      | `bet`         | Bet, here's the result           |
+| `class`       | `squad`       | A squad of behaviors             |
+| `new`         | `spawn`       | Spawn an object                  |
+| `this`        | `me`          | Refers to me                     |
+| `true`        | `noCap`       | True, no cap                     |
+| `false`       | `cap`         | That's cap                       |
+| `null`        | `ghosted`     | Nothing there                    |
+| `undefined`   | `idk`         | Unknown                          |
+| `try`         | `yolo`        | Give it a shot                   |
+| `catch`       | `caughtIn4K`  | Caught the error                 |
+| `throw`       | `crashOut`    | Throw an exception               |
+| `async`       | `waitForIt`   | Async function                   |
+| `await`       | `holdUp`      | Wait here                        |
+| `import`      | `yoink`       | Bring it in                      |
+| `export`      | `putOn`       | Share it                         |
+| `console.log` | `spill`       | Spill the tea                    |
+| `typeof`      | `whatIsThis`  | Inspect type                     |
+| `delete`      | `yeet`        | Throw it away                    |
+| `super`       | `og`          | Original/base class              |
+
 
 Everything else -- operators, literals, function calls, property access -- is plain JavaScript. Words like `extends`, `finally`, `of`, and `in` are kept as-is.
 
@@ -117,6 +123,8 @@ Using a raw JavaScript keyword is a compile error with a helpful hint:
 ```text
 'let' is not gzlang. Use 'cook' instead, bestie (line 1, column 1)
 ```
+
+
 
 ## A bigger taste
 
@@ -173,6 +181,8 @@ npm test          # run the test suite
 npm run build     # build dist/ with tsup
 npm run typecheck
 ```
+
+
 
 ## License
 
