@@ -53,7 +53,7 @@
 .playground-editor {
   display: flex;
   flex: 1 1 auto;
-  align-items: stretch;
+  align-items: flex-start;
   min-height: 0;
 }
 
@@ -62,6 +62,7 @@
   flex-direction: column;
   flex-shrink: 0;
   align-items: flex-end;
+  min-height: 100%;
   padding: var(--editor-padding);
   border-right: var(--border-width) solid var(--color-neutral-200);
   color: var(--color-neutral-700);
@@ -114,6 +115,10 @@
   transform: rotate(180deg);
 }
 
+.playground-console-output-wrap {
+  min-height: 0;
+}
+
 .playground-console-output {
   margin: 0;
   max-height: var(--size-console-max);
@@ -121,10 +126,13 @@
   color: var(--color-neutral-700);
   font-family: var(--font-mono);
   font-size: var(--font-size-ui);
-  white-space: pre-wrap;
-  word-break: break-word;
   scrollbar-width: thin;
   scrollbar-color: var(--color-neutral-300) transparent;
+}
+
+.playground-console-line {
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .playground-console-output::-webkit-scrollbar {

@@ -1,9 +1,16 @@
 import { motion } from "motion/react";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { GzSyntaxError, transpile } from "gzlang";
 import chevronUpIcon from "../../../assets/icons/chevron-up.svg";
 import type { Sample } from "../../data/samples";
-import { EASE_OUT_CUBIC, REVEAL_DELAYS } from "../../motion";
+import {
+  EASE_OUT_CUBIC,
+  REVEAL_DELAYS,
+  SIDEBAR_ITEM_VARIANTS,
+  SIDEBAR_LIST_VARIANTS,
+  SIDEBAR_TAB_PANEL_TRANSITION,
+  SIDEBAR_TAB_PANEL_VARIANTS,
+} from "../../motion";
 import { Button } from "../Button/Button";
 import { CodeEditor } from "../CodeEditor/CodeEditor";
 import { ScrollArea } from "../ScrollArea/ScrollArea";
@@ -60,11 +67,17 @@ export function Playground({ reveal = false }: PlaygroundProps) {
   const [source, setSource] = useState("");
   const [consoleOutput, setConsoleOutput] = useState("");
   const [consoleOpen, setConsoleOpen] = useState(false);
+  const [runKey, setRunKey] = useState(0);
+  const shouldAnimateOutput = useRef(false);
 
   const lineCount = useMemo(() => source.split("\n").length, [source]);
   const lineNumbers = useMemo(
     () => Array.from({ length: lineCount }, (_, index) => index + 1),
     [lineCount],
+  );
+  const outputLines = useMemo(
+    () => (consoleOutput ? consoleOutput.split("\n") : [" "]),
+    [consoleOutput],
   );
 
   function handleSelectSample(sample: Sample) {
@@ -75,6 +88,8 @@ export function Playground({ reveal = false }: PlaygroundProps) {
   async function handleRun() {
     setConsoleOpen(true);
     setConsoleOutput(await captureRun(source));
+    shouldAnimateOutput.current = true;
+    setRunKey((key) => key + 1);
   }
 
   return (
@@ -137,9 +152,36 @@ export function Playground({ reveal = false }: PlaygroundProps) {
               />
             </button>
             {consoleOpen ? (
-              <ScrollArea className="playground-console-output">
-                {consoleOutput || " "}
-              </ScrollArea>
+              <motion.div
+                key={runKey}
+                className="playground-console-output-wrap"
+                variants={SIDEBAR_TAB_PANEL_VARIANTS}
+                initial={shouldAnimateOutput.current ? "hidden" : false}
+                animate="show"
+                transition={SIDEBAR_TAB_PANEL_TRANSITION}
+                onAnimationComplete={() => {
+                  shouldAnimateOutput.current = false;
+                }}
+              >
+                <ScrollArea className="playground-console-output">
+                  <motion.div
+                    variants={SIDEBAR_LIST_VARIANTS}
+                    initial={shouldAnimateOutput.current ? "hidden" : false}
+                    animate="show"
+                    custom={0.04}
+                  >
+                    {outputLines.map((line, index) => (
+                      <motion.div
+                        key={`${runKey}-${index}`}
+                        className="playground-console-line"
+                        variants={SIDEBAR_ITEM_VARIANTS}
+                      >
+                        {line.length > 0 ? line : "\u00A0"}
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </ScrollArea>
+              </motion.div>
             ) : null}
           </div>
         </motion.div>
