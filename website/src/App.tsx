@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { LayoutGroup } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import { BrandHero } from "./components/BrandHero/BrandHero";
@@ -67,6 +68,7 @@ export default function App() {
           <Playground reveal={!prefersReducedMotion()} />
         </div>
       )}
+      <Analytics />
     </LayoutGroup>
   );
 }
