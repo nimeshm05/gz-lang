@@ -137,6 +137,7 @@
   font-size: var(--font-size-ui);
   font-weight: 400;
   margin-bottom: 1rem;
+  line-height: calc(1.5 * var(--font-size-ui));
 }
 
 .documentation-divider {
