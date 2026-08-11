@@ -8,7 +8,7 @@ import { PREMIUM_EASE } from "../../motion";
 import "./ContribDeetsDialog.css";
 
 const LINKEDIN_HREF = "https://www.linkedin.com/in/nimeshm-work/";
-const GITHUB_HREF = "https://github.com/nimeshm05";
+const GITHUB_HREF = "https://github.com/nimeshm05/gz-lang";
 
 const DIALOG_TRANSITION = { duration: 0.25, ease: PREMIUM_EASE } as const;
 
